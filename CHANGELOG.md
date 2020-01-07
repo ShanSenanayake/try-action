@@ -2,6 +2,8 @@
 
 ## Nuvarande changelog
 
+## 3.1.0-rc1 (2020-01-07)
+
 hello this is a changelog change
 
 ## 3.0.0 (2020-01-07)
