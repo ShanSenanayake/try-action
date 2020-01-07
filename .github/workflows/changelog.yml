@@ -2,7 +2,7 @@ name: Adding date to changelog.
 
 on:
   release:
-    types: [published, created, edited]
+    types: [published]
 
 jobs:
   add-date:
@@ -10,8 +10,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Run a one-line script
-        run: sed -i "/## Nuvarande changelog/a \\\n##$GITHUB_REF ($(date -I))" CHANGELOG.md
+      - name: Change changelog file
+        run: |
+          tag=$(echo $GITHUB_REF | cut -d '/' -f 3)
+          sed -i "/## Nuvarande changelog/a \\\n## $tag ($(date -I))" CHANGELOG.md
       - name: Commit
         uses: zwaldowski/git-commit-action@v1
         with:
