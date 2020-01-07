@@ -6,6 +6,7 @@ on:
 
 jobs:
   add-date:
+    if: contains(github.ref, '-rc')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
